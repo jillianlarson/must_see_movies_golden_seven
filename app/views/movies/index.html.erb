@@ -1,0 +1,47 @@
+<div class="page-header">
+<h1>List of Directors</h1>
+</div>
+
+<p>
+  <a href="/directors/new" class="btn btn-primary">Add a New Director</a>
+</p>
+
+  <p>
+    <a href="http://localhost:3000/actors">Actors</a>
+    <a href="http://localhost:3000/movies">Movies</a>
+  </p>
+
+<table>
+  <tr>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Bio</th>
+    <th>DOB</th>
+    <th>Delete</th>
+    <th>Update</th>
+  </tr>
+  <% @list_directors.each do |director| %>
+  <tr>
+    <td>
+     <img src="<%=director.image_url%>" width="50">
+    </td>
+    <td>
+      <a href="http://localhost:3000/directors/<%=director.id%>"><%= director.name %></a>
+    </td>
+    <td>
+    <%= truncate(director.bio) %>
+    </td>
+    <td>
+    <%= director.dob%>
+    </td>
+    <td>
+     <a href="http://localhost:3000/directors/delete/<%= director.id %>">Delete</a>
+    </td>
+   <td>
+     <a href="http://localhost:3000/directors/edit/<%= director.id %>">Update</a>
+    </td>
+</tr>
+
+
+  <% end %>
+</table>

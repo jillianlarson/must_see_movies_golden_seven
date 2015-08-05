@@ -1,0 +1,39 @@
+<h1>List of Movies</h1>
+
+  <p>
+    <a href="http://localhost:3000/movies/new">Add a New Movie</a>
+  </p>
+  <p>
+    <a href="http://localhost:3000/directors">Directors</a>
+    <a href="http://localhost:3000/actors">Actors</a>
+  </p>
+
+<table>
+  <tr>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Delete</th>
+    <th>Update</th>
+  </tr>
+  <% @list_films.each do |movie| %>
+  <tr>
+    <td>
+     <img src="<%=movie.image_url%>" width="50">
+    </td>
+    <td>
+      <a href="http://localhost:3000/movies/<%=movie.id%>"><%= movie.title %></a>
+    </td>
+    <td>
+    <%= truncate(movie.description) %>
+    </td>
+    <td>
+     <a href="http://localhost:3000/movies/delete/<%= movie.id %>">Delete</a>
+    </td>
+   <td>
+     <a href="http://localhost:3000/movies/edit/<%= movie.id %>">Update</a>
+  </td>
+</tr>
+
+
+  <% end %>
+</table>

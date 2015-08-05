@@ -1,0 +1,17 @@
+<h1><%= @direct.name %></h1>
+<h3>Born: <%= @direct.dob %></h3>
+
+  <td>
+    <img src="<%=@direct.image_url%>" width="100">
+  </td>
+
+ <td>
+    <%= @direct.bio %>
+  </td>
+
+  <p>
+    <a href="http://localhost:3000/directors/delete/<%= @direct.id %>">Delete</a>
+  </p>
+  <p>
+   <a href="/directors">Back to Directors</a>
+ </p>
